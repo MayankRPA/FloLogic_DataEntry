@@ -1,0 +1,770 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="894,841" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Database</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="Main" sap:VirtualizedContainerService.HintSize="758,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="DT" />
+      <Variable x:TypeArguments="x:String" Name="ship" />
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="WB" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="SelectedRows" />
+      <Variable x:TypeArguments="x:String" Name="region" />
+      <Variable x:TypeArguments="x:String" Name="Category" />
+      <Variable x:TypeArguments="x:String" Name="ShipDatemm" />
+      <Variable x:TypeArguments="x:String" Name="SDmm" />
+      <Variable x:TypeArguments="x:String" Name="ShipDatedd" />
+      <Variable x:TypeArguments="x:String" Name="SDdd" />
+      <Variable x:TypeArguments="x:String" Name="ShipDateyyyy" />
+      <Variable x:TypeArguments="x:String" Name="SDyyyy" />
+      <Variable x:TypeArguments="x:String" Name="ODmm" />
+      <Variable x:TypeArguments="x:String" Name="OrderDatedd" />
+      <Variable x:TypeArguments="x:String" Name="ODdd" />
+      <Variable x:TypeArguments="x:String" Name="OrderDateyyyy" />
+      <Variable x:TypeArguments="x:String" Name="OrderDatemm" />
+      <Variable x:TypeArguments="x:String" Name="ODyyyy" />
+      <Variable x:TypeArguments="ui:Browser" Name="closeBrowser" />
+      <Variable x:TypeArguments="x:Boolean" Name="FormSubmitted" />
+      <Variable x:TypeArguments="x:String" Name="OutputQuantity" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">330,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">360,77.5 360,105.5</av:PointCollection>
+        <x:Double x:Key="Width">724</x:Double>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID0</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">260,105.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence sap:VirtualizedContainerService.HintSize="1915,5449" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1873,507" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[WB]" WorkbookPath="Sample_Assignment.xlsx">
+          <ui:ExcelApplicationScope.Body>
+            <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,398" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelReadRange AddHeaders="True" DataTable="[DT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Orders">
+                  <ui:ExcelReadRange.Range>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </ui:ExcelReadRange.Range>
+                </ui:ExcelReadRange>
+                <If Condition="[WB isnot nothing]" sap:VirtualizedContainerService.HintSize="484,207" sap2010:WorkflowViewState.IdRef="If_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[WB]" />
+                  </If.Then>
+                </If>
+              </Sequence>
+            </ActivityAction>
+          </ui:ExcelApplicationScope.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ExcelApplicationScope>
+        <ui:FilterDataTable DataTable="[DT]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1873,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[DT]" SelectColumnsMode="Keep">
+          <ui:FilterDataTable.Filters>
+            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+              <ui:FilterOperationArgument BooleanOperator="And" Operator="GT">
+                <ui:FilterOperationArgument.Column>
+                  <InArgument x:TypeArguments="x:String">["Profit"]</InArgument>
+                </ui:FilterOperationArgument.Column>
+                <ui:FilterOperationArgument.Operand>
+                  <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                </ui:FilterOperationArgument.Operand>
+              </ui:FilterOperationArgument>
+            </scg:List>
+          </ui:FilterDataTable.Filters>
+          <ui:FilterDataTable.SelectColumns>
+            <scg:List x:TypeArguments="InArgument" Capacity="4">
+              <x:Null />
+            </scg:List>
+          </ui:FilterDataTable.SelectColumns>
+        </ui:FilterDataTable>
+        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1873,4711" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+          <ui:ForEachRow.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1823,4563" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:OpenBrowser BrowserType="IE" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="1781,4263" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" UiBrowser="[closeBrowser]" Url="https://forms.gle/2MWEvS9X7Z6n2nEZ7">
+                  <ui:OpenBrowser.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1747,4164" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1705,4072" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:TypeInto DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="1000" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_44" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Quantity&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Quantity *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_20" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Order ID&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Order Id *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_21" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Product Id&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Product Id*' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_22" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Customer ID&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Customer ID *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_23" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Sub-Category&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Sub-Category *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_24" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Discount&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Discount *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_25" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;State&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='State *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_26" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Product Name&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Product Name*' type='text*' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_27" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Profit&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Profit *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_28" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Country&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Country *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_43" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Customer Name&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Customer Name *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_29" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Postal Code&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Postal Code *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="150" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="1663,134" sap2010:WorkflowViewState.IdRef="TypeInto_30" SendWindowMessages="False" SimulateType="False" Text="[row(&quot;Sales&quot;).ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3572a05a0afd8ff832ab62517055768e" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Sales *' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <Sequence DisplayName="Category" sap:VirtualizedContainerService.HintSize="1663,68" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Category]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Category").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="29aa2509b22f992143ae986494f097b8" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='  Choose' idx='2' tag='DIV' /&gt;" WaitForReady="COMPLETE" />
+                              </ui:Click.Target>
+                            </ui:Click>
+                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,529" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch.Try>
+                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_17" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="95b7e7d4026709d976853af66b226dc0" Selector="[&quot;&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='*&quot;+Category+&quot;*' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;&quot;]" WaitForReady="COMPLETE" />
+                                  </ui:Click.Target>
+                                </ui:Click>
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,367" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[ship]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Ship Mode").ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_18" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                        <ui:Click.CursorPosition>
+                                          <ui:CursorPosition Position="Center">
+                                            <ui:CursorPosition.OffsetX>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetX>
+                                            <ui:CursorPosition.OffsetY>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetY>
+                                          </ui:CursorPosition>
+                                        </ui:Click.CursorPosition>
+                                        <ui:Click.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="95b7e7d4026709d976853af66b226dc0" Selector="[&quot;&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='*&quot;+ship+&quot;*' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;&quot;]" WaitForReady="COMPLETE" />
+                                        </ui:Click.Target>
+                                      </ui:Click>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                            </TryCatch>
+                          </Sequence>
+                          <Sequence DisplayName="Dropdown Ship Mode" sap:VirtualizedContainerService.HintSize="1663,68" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ship]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Ship Mode").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="29aa2509b22f992143ae986494f097b8" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='  Choose' idx='1' tag='DIV' /&gt;" WaitForReady="COMPLETE" />
+                              </ui:Click.Target>
+                            </ui:Click>
+                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,183" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch.Try>
+                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_20" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="95b7e7d4026709d976853af66b226dc0" Selector="[&quot;&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='*&quot;+ship+&quot;*' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;&quot;]" WaitForReady="COMPLETE" />
+                                  </ui:Click.Target>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:Click>
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[Category]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[row.Item("Category").ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                        <ui:Click.CursorPosition>
+                                          <ui:CursorPosition Position="Center">
+                                            <ui:CursorPosition.OffsetX>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetX>
+                                            <ui:CursorPosition.OffsetY>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetY>
+                                          </ui:CursorPosition>
+                                        </ui:Click.CursorPosition>
+                                        <ui:Click.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="95b7e7d4026709d976853af66b226dc0" Selector="[&quot;&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='*&quot;+Category+&quot;*' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;&quot;]" WaitForReady="COMPLETE" />
+                                        </ui:Click.Target>
+                                      </ui:Click>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                            </TryCatch>
+                          </Sequence>
+                          <Sequence DisplayName="Region" sap:VirtualizedContainerService.HintSize="1663,886" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="1621,60" sap2010:WorkflowViewState.IdRef="Assign_39">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[region]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Region").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <If Condition="[region=&quot;East&quot;]" sap:VirtualizedContainerService.HintSize="1621,694" sap2010:WorkflowViewState.IdRef="If_5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_26" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f8a9383207139308cd006cc7396811dc" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='East' parentid='mG61Hd' tag='SPAN' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:Click.Target>
+                                </ui:Click>
+                              </If.Then>
+                              <If.Else>
+                                <If Condition="[region=&quot;West&quot;]" sap:VirtualizedContainerService.HintSize="1242,547" sap2010:WorkflowViewState.IdRef="If_4">
+                                  <If.Then>
+                                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_27" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                      <ui:Click.CursorPosition>
+                                        <ui:CursorPosition Position="Center">
+                                          <ui:CursorPosition.OffsetX>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:CursorPosition.OffsetX>
+                                          <ui:CursorPosition.OffsetY>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:CursorPosition.OffsetY>
+                                        </ui:CursorPosition>
+                                      </ui:Click.CursorPosition>
+                                      <ui:Click.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f8a9383207139308cd006cc7396811dc" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='West' parentid='mG61Hd' tag='SPAN' /&gt;" WaitForReady="COMPLETE" />
+                                      </ui:Click.Target>
+                                    </ui:Click>
+                                  </If.Then>
+                                  <If.Else>
+                                    <If Condition="[region=&quot;South&quot;]" sap:VirtualizedContainerService.HintSize="863,400" sap2010:WorkflowViewState.IdRef="If_3">
+                                      <If.Then>
+                                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_28" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                          <ui:Click.CursorPosition>
+                                            <ui:CursorPosition Position="Center">
+                                              <ui:CursorPosition.OffsetX>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetX>
+                                              <ui:CursorPosition.OffsetY>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetY>
+                                            </ui:CursorPosition>
+                                          </ui:Click.CursorPosition>
+                                          <ui:Click.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f8a9383207139308cd006cc7396811dc" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='South' parentid='mG61Hd' tag='SPAN' /&gt;" WaitForReady="COMPLETE" />
+                                          </ui:Click.Target>
+                                        </ui:Click>
+                                      </If.Then>
+                                      <If.Else>
+                                        <If Condition="[region=&quot;Central&quot;]" sap:VirtualizedContainerService.HintSize="484,253" sap2010:WorkflowViewState.IdRef="If_2">
+                                          <If.Then>
+                                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_29" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                              <ui:Click.CursorPosition>
+                                                <ui:CursorPosition Position="Center">
+                                                  <ui:CursorPosition.OffsetX>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:CursorPosition.OffsetX>
+                                                  <ui:CursorPosition.OffsetY>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:CursorPosition.OffsetY>
+                                                </ui:CursorPosition>
+                                              </ui:Click.CursorPosition>
+                                              <ui:Click.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f8a9383207139308cd006cc7396811dc" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Central' parentid='mG61Hd' tag='SPAN' /&gt;" WaitForReady="COMPLETE" />
+                                              </ui:Click.Target>
+                                            </ui:Click>
+                                          </If.Then>
+                                        </If>
+                                      </If.Else>
+                                    </If>
+                                  </If.Else>
+                                </If>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                          <Sequence DisplayName="Segment" sap:VirtualizedContainerService.HintSize="1663,68" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="Segment" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Segment]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.item("Segment").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="33a19d7e46d25d73117b101ba3c1e419" Selector="[&quot;&lt;webctrl aaname='*&quot;+Segment+&quot;*' parentid='mG61Hd' tag='SPAN' /&gt;&quot;]" WaitForReady="COMPLETE" />
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </Sequence>
+                          <Sequence DisplayName="Ship Date mm/dd/yyyy" sap:VirtualizedContainerService.HintSize="1663,68" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ShipDatemm]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Ship Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[SDmm]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[ShipDatemm.Split("/"c)(0)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_48">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ShipDatedd]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Ship Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_49">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[SDdd]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[ShipDatedd.Split("/"c)(1)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_50">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ShipDateyyyy]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Ship Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[SDyyyy]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[ShipDateyyyy.Split("/"c)(2)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="1000" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_46" SendWindowMessages="False" SimulateType="False" Text="[SDdd+ &quot;[k(tab)]&quot;+SDmm+ &quot;[k(tab)]&quot;+SDyyyy]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5a22894051f2d5b40b14c0b381d54c20" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='*Day of the month*' idx='2' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                          <Sequence DisplayName="Order Date mm/dd/yyyy" sap:VirtualizedContainerService.HintSize="1663,68" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[OrderDatemm]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Order Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ODmm]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[OrderDatemm.Split("/"c)(0)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[OrderDatedd]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Order Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ODdd]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[OrderDatedd.Split("/"c)(1)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[OrderDateyyyy]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[row.Item("Order Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[ODyyyy]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[OrderDateyyyy.Split("/"c)(2)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="1000" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_41" SendWindowMessages="False" SimulateType="False" Text="[ODdd+ &quot;[k(tab)]&quot;+ODmm+ &quot;[k(tab)]&quot;+ODyyyy]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5a22894051f2d5b40b14c0b381d54c20" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='*Day of the month*' idx='1' tag='INPUT' type='text' /&gt;" WaitForReady="COMPLETE" />
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="1663,106" sap2010:WorkflowViewState.IdRef="Click_24" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="d5f643c2fcfa46290097311cfd173183" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl aaname='Submit*' parentid='mG61Hd' tag='SPAN' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[FormSubmitted]" sap:VirtualizedContainerService.HintSize="1663,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fa14bff4a3117145b38469629ad45557" Selector="&lt;html title='Flologic Automation Demo Form' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' isleaf='1' tag='DIV' aaname='Thank you for submitting the order details.' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                        </Sequence>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:OpenBrowser.Body>
+                </ui:OpenBrowser>
+                <ui:CloseTab Browser="[closeBrowser]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="1781,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
+                <ui:CloseApplication DisplayName="Close Application 'iexplore.exe Flologic'" sap:VirtualizedContainerService.HintSize="1781,106" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+                  <ui:CloseApplication.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="10df01d46c0ff4244449c6a963e48028" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Flologic Automation Demo Form - Internet Explorer' /&gt;" WaitForReady="COMPLETE" />
+                  </ui:CloseApplication.Target>
+                </ui:CloseApplication>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEachRow.Body>
+        </ui:ForEachRow>
+      </Sequence>
+    </FlowStep>
+  </Flowchart>
+</Activity>
